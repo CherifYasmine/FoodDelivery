@@ -9,27 +9,33 @@ const SignUp =({navigation})=>{
         <Text style={styles.txt}>Add your details to Sign Up</Text>
         <TextInput
         style={styles.input}
-        value='Name'
+        placeholder="Name"
+          placeholderTextColor="#7071744F"
       />
       <TextInput
         style={styles.inputP}
-        value='Email'
+        placeholder="Email"
+          placeholderTextColor="#7071744F"
       />
       <TextInput
         style={styles.inputP}
-        value='Mobile No'
+        placeholder="Mobile No"
+          placeholderTextColor="#7071744F"
       />
       <TextInput
         style={styles.inputP}
-        value='Address'
+        placeholder="Address"
+          placeholderTextColor="#7071744F"
       />
       <TextInput
         style={styles.inputP}
-        value='Password'
+        placeholder="Password"
+          placeholderTextColor="#7071744F"
       />
       <TextInput
         style={styles.inputP}
-        value='Confirm Password'
+        placeholder="Confirm Password"
+          placeholderTextColor="#7071744F"
       />
       <TouchableHighlight style={styles.loginTp}>
         <Text style={styles.loginBtn} >Sign Up</Text>

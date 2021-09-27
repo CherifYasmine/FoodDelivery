@@ -9,11 +9,13 @@ const Login =({navigation})=>{
         <Text style={styles.txt}>Add your details to Login</Text>
         <TextInput
         style={styles.input}
-        value='Your Email'
+        placeholder='Your Email'
+        placeholderTextColor="#7071744F"
       />
       <TextInput
         style={styles.inputP}
-        value='Your Password'
+        placeholder='Your Password'
+        placeholderTextColor="#7071744F"
       />
       <TouchableHighlight onPress={() =>navigation.navigate('FirstWelcome')} style={styles.loginTp}>
         <Text style={styles.loginBtn} >Login</Text>

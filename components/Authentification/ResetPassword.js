@@ -7,7 +7,8 @@ const ResetPassword = ({navigation}) => {
            <Text style={styles.txt2}>Please enter your email to receive a link to create a new password via email.</Text> 
            <TextInput
         style={styles.input}
-        value='Your Email'
+        placeholder="Your Email"
+          placeholderTextColor="#7071744F"
       />
       <TouchableHighlight onPress={() =>navigation.navigate('OtpSent')} style={styles.loginTp}>
         <Text style={styles.loginBtn} >Send</Text>

@@ -10,7 +10,7 @@ import ThirdWelcome from './components/Welcome/ThirdWelcome';
 import ResetPassword from './components/Authentification/ResetPassword';
 import OtpSent from './components/Authentification/OtpSent';
 import NewPassword from './components/Authentification/NewPassword';
-import Home from './components/Home/Home';
+import Tabs from './components/screens/Tabs';
 
 
 
@@ -87,8 +87,8 @@ const Nav = () => {
         options={{
             headerShown: false
              }}
-          name="Home"
-          component={Home}
+          name="Tabs"
+          component={Tabs}
         />
       </Stack.Navigator>
     </NavigationContainer>

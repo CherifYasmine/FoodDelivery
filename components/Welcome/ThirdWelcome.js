@@ -20,7 +20,7 @@ const ThirdWelcome = ({navigation}) => {
             Real time tracking of the food on your app once you packed the order.
       </Text>
       <TouchableHighlight
-        onPress={() => navigation.navigate('Home')}
+        onPress={() => navigation.navigate('Tabs')}
         style={styles.next}>
         <Text style={styles.nextTxt}>Next</Text>
       </TouchableHighlight>

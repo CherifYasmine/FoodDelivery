@@ -7,11 +7,13 @@ const NewPassword = ({navigation}) => {
            <Text style={styles.txt2}>Please enter your new Password.</Text> 
            <TextInput
         style={styles.input}
-        value='New Password'
+        placeholder='New Password'
+        placeholderTextColor="#7071744F"
       />
       <TextInput
         style={styles.input2}
-        value='Confirm Password'
+        placeholder='Confirm Password'
+        placeholderTextColor="#7071744F"
       />
       <TouchableHighlight onPress={() =>navigation.navigate('Login')} style={styles.loginTp}>
         <Text style={styles.loginBtn} >Next</Text>
