@@ -10,15 +10,15 @@ import {
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 import MostPopular from './MostPopular';
 import PopularRestaurants from './PopularRestaurants';
+import RecentItems from './RecentItems';
 
 const Home = () => {
   const [options, setOptions] = useState([
     {name: 'offers', image: require('../../../assets/images/hamburger.jpeg')},
-    {name: 'offers', image: require('../../../assets/images/hamburger.jpeg')},
-    {name: 'offers', image: require('../../../assets/images/hamburger.jpeg')},
-    {name: 'offers', image: require('../../../assets/images/hamburger.jpeg')},
-    {name: 'offers', image: require('../../../assets/images/hamburger.jpeg')},
-    {name: 'offers', image: require('../../../assets/images/hamburger.jpeg')},
+    {name: 'Srl Lankan', image: require('../../../assets/images/hamburger.jpeg')},
+    {name: 'Italian', image: require('../../../assets/images/hamburger.jpeg')},
+    {name: 'Indian', image: require('../../../assets/images/hamburger.jpeg')},
+    {name: 'Chineese', image: require('../../../assets/images/hamburger.jpeg')},
     
 
   ]);
@@ -76,6 +76,7 @@ const Home = () => {
       </View>
       <PopularRestaurants/>
       <MostPopular/>
+      <RecentItems/>
     </ScrollView>
   );
 };

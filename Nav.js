@@ -11,7 +11,7 @@ import ResetPassword from './components/Authentification/ResetPassword';
 import OtpSent from './components/Authentification/OtpSent';
 import NewPassword from './components/Authentification/NewPassword';
 import Tabs from './components/screens/Tabs';
-
+import Desserts from './components/screens/Menu/Desserts'
 
 
 const Stack = createNativeStackNavigator();
@@ -89,6 +89,13 @@ const Nav = () => {
              }}
           name="Tabs"
           component={Tabs}
+        />
+        <Stack.Screen
+        options={{
+            headerShown: false
+             }}
+          name="Desserts"
+          component={Desserts}
         />
       </Stack.Navigator>
     </NavigationContainer>

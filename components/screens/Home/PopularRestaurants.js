@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
   viewAll: {
     fontSize: 12,
     color: '#FC6011',
-    marginLeft: '45%',
+    marginLeft: '50%',
     marginTop: 15,
     fontWeight: 'bold',
   },
