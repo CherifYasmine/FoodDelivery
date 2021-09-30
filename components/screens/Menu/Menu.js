@@ -6,7 +6,7 @@ import {
   Image,
   TouchableHighlight,
   TextInput,
-  ScrollView
+  ScrollView,
 } from 'react-native';
 import {Icon} from 'react-native-elements';
 
@@ -55,30 +55,41 @@ const Menu = ({navigation}) => {
       <View style={styles.menuItems}>
         {menuItems.map(menuItem => {
           return (
-            <View key={menuItems.indexOf(menuItem)} style={styles.menuItem}>
-              <View>
-                <View style={styles.nameImage}>
-                  <Image
-                    style={styles.menuItemImage}
-                    source={menuItem.Image}></Image>
+            <TouchableHighlight underlayColor={'transparent'}
+              key={menuItems.indexOf(menuItem)}
+              onPress={() =>
+                navigation.navigate('MenuItems', {name: menuItem.name})
+              }>
+              <View style={styles.menuItem}>
+                <View>
+                  <View style={styles.nameImage}>
+                    <Image
+                      style={styles.menuItemImage}
+                      source={menuItem.Image}></Image>
 
-                  <Text style={styles.menuItemName}>{menuItem.name}</Text>
-                  <View style={{width:200, height:200}}>
-                  <TouchableHighlight underlayColor={'#B6B7B76E'} style={styles.menuItemIcon} onPress={() =>navigation.navigate('Desserts',{name:menuItem.name})}>
-                    <Icon
-                      style={{marginTop: 5}}
-                      name="chevron-forward"
-                      type="ionicon"
-                      size={30}
-                      color={'#FC6011'}></Icon>
-                  </TouchableHighlight>
+                    <Text style={styles.menuItemName}>{menuItem.name}</Text>
+                    <View style={{width: 200, height: 200}}>
+                      <TouchableHighlight
+                        underlayColor={'transparent'}
+                        style={styles.menuItemIcon}
+                        onPress={() =>
+                          navigation.navigate('MenuItems', {name: menuItem.name})
+                        }>
+                        <Icon
+                          style={{marginTop: 5}}
+                          name="chevron-forward"
+                          type="ionicon"
+                          size={30}
+                          color={'#FC6011'}></Icon>
+                      </TouchableHighlight>
+                    </View>
                   </View>
                 </View>
+                <Text style={styles.itemsNumber}>
+                  {menuItem.itemsNumber} Items
+                </Text>
               </View>
-              <Text style={styles.itemsNumber}>
-                {menuItem.itemsNumber} Items
-              </Text>
-            </View>
+            </TouchableHighlight>
           );
         })}
       </View>

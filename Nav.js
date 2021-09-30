@@ -11,7 +11,8 @@ import ResetPassword from './components/Authentification/ResetPassword';
 import OtpSent from './components/Authentification/OtpSent';
 import NewPassword from './components/Authentification/NewPassword';
 import Tabs from './components/screens/Tabs';
-import Desserts from './components/screens/Menu/Desserts'
+import MenuItems from './components/screens/Menu/MenuItems'
+import FoodItem from './components/screens/Menu/FoodItem'
 
 
 const Stack = createNativeStackNavigator();
@@ -94,8 +95,15 @@ const Nav = () => {
         options={{
             headerShown: false
              }}
-          name="Desserts"
-          component={Desserts}
+          name="MenuItems"
+          component={MenuItems}
+        />
+        <Stack.Screen
+        options={{
+            headerShown: false
+             }}
+          name="FoodItem"
+          component={FoodItem}
         />
       </Stack.Navigator>
     </NavigationContainer>
