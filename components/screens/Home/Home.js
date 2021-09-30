@@ -88,23 +88,37 @@ const styles = StyleSheet.create({
   },
   title: {
     flexDirection: 'row',
+    marginLeft:'7%',
+    marginRight:'10%',
+    width:'100%'
   },
   greeting: {
     fontSize: 20,
     fontWeight: 'bold',
-    paddingLeft: 20,
   },
   cart: {
-    marginLeft: 100,
+    marginLeft: '20%',
+  },
+  inputSearchAll: {
+    backgroundColor: '#E8E9E9',
+    marginTop: 30,
+    color: '#B6B7B7E3',
+    width: '80%',
+    borderRadius: 350 / 2,
+    marginLeft: '10%',
+    textAlign: 'center',
+    flexDirection: 'row',
+    height: 50,
+    // paddingLeft: 20,
   },
   deliveringTo: {
     color: '#B6B7B7',
     marginTop: 30,
-    paddingLeft: 20,
+    paddingLeft: '7%',
   },
   location: {
     flexDirection: 'row',
-    paddingLeft: 20,
+    paddingLeft:'7%',
   },
   locationChoosen: {
     fontSize: 17,
@@ -120,18 +134,7 @@ const styles = StyleSheet.create({
   loc: {
     fontSize: 15,
   },
-  inputSearchAll: {
-    backgroundColor: '#E8E9E9',
-    marginTop: 30,
-    color: '#B6B7B7E3',
-    width: 350,
-    borderRadius: 350 / 2,
-    marginLeft: 20,
-    textAlign: 'center',
-    flexDirection: 'row',
-    height: 50,
-    paddingLeft: 20,
-  },
+  
   inputSearch: {
     backgroundColor: 'transparent',
   },

@@ -104,26 +104,28 @@ const styles = StyleSheet.create({
   },
   title: {
     flexDirection: 'row',
+    marginLeft:'10%',
+    marginRight:'10%',
+    width:'100%'
   },
   greeting: {
     fontSize: 20,
     fontWeight: 'bold',
-    paddingLeft: 25,
   },
   cart: {
-    marginLeft: 280,
+    marginLeft: '60%',
   },
   inputSearchAll: {
     backgroundColor: '#E8E9E9',
     marginTop: 30,
     color: '#B6B7B7E3',
-    width: 350,
+    width: '80%',
     borderRadius: 350 / 2,
-    marginLeft: 20,
+    marginLeft: '10%',
     textAlign: 'center',
     flexDirection: 'row',
     height: 50,
-    paddingLeft: 20,
+    // paddingLeft: 20,
   },
   inputSearch: {
     backgroundColor: 'transparent',
@@ -149,7 +151,8 @@ const styles = StyleSheet.create({
   },
   menuItem: {
     marginTop: 20,
-    width: 300,
+    // width: '100%',
+    marginRight:45,
     marginLeft: 50,
     height: 100,
     backgroundColor: 'white',
@@ -193,7 +196,7 @@ const styles = StyleSheet.create({
   },
   menuItemIcon: {
     marginTop: 30,
-    marginLeft: 70,
+    marginLeft: '40%',
     backgroundColor: '#ffff',
     borderRadius: 20,
     width: 40,

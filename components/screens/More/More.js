@@ -7,7 +7,7 @@ import {
   TouchableHighlight,
   TextInput,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/dist/FontAwesome';
+import { Icon } from 'react-native-elements'
 
 const More = () => {
   return (
@@ -15,19 +15,57 @@ const More = () => {
       <View style={styles.title}>
         <Text style={styles.greeting}>More</Text>
         <Text style={styles.cart}>
-          <Icon size={24} name="shopping-cart"></Icon>
+          <Icon size={26} name="shopping-cart"></Icon>
         </Text>
       </View>
-      <View style={styles.inputSearchAll}>
-          <Text style={styles.searchIcon}>
-            <Icon color="#707174C9" size={17} name="search"></Icon>
-          </Text>
-          <TextInput
-            style={styles.inputSearch}
-            placeholderTextColor="#707174C9"
-            placeholder="Search Food"
-          />
+      <View style={styles.cont}>
+        <View style={styles.moreContainer}>
+          <View style={styles.iconContainer}>
+            <Icon color={'#FC6011'} style={styles.icon} name="wallet" type='ionicon' size={25}/>
+          </View>
+          <Text style={styles.textContainer}>Payment Details</Text>
+          <TouchableHighlight underlayColor={'transparent'} style={styles.iconMoreContainer}>
+            <Icon color={'#FC6011'} style={styles.iconMore} name="chevron-forward" type='ionicon' size={25}/>
+          </TouchableHighlight>
         </View>
+        <View style={styles.moreContainer}>
+          <View style={styles.iconContainer}>
+            <Icon color={'#FC6011'} style={styles.icon} name="cart" type='ionicon' size={25}/>
+          </View>
+          <Text style={styles.textContainer}>My Orders</Text>
+          <TouchableHighlight underlayColor={'transparent'} style={styles.iconMoreContainer}>
+            <Icon color={'#FC6011'} style={styles.iconMore} name="chevron-forward" type='ionicon' size={25}/>
+          </TouchableHighlight>
+        </View>
+        <View style={styles.moreContainer}>
+          <View style={styles.iconContainer}>
+            <Icon color={'#FC6011'} style={styles.icon} name="notifications" type='ionicon' size={25}/>
+          </View>
+          <Text style={styles.textContainer}>Notifications</Text>
+          <TouchableHighlight underlayColor={'transparent'} style={styles.iconMoreContainer}>
+            <Icon color={'#FC6011'} style={styles.iconMore} name="chevron-forward" type='ionicon' size={25}/>
+          </TouchableHighlight>
+        </View>
+        <View style={styles.moreContainer}>
+          <View style={styles.iconContainer}>
+            <Icon color={'#FC6011'} style={styles.icon} name="mail" type='ionicon' size={25}/>
+          </View>
+          <Text style={styles.textContainer}>Inbox</Text>
+          <TouchableHighlight underlayColor={'transparent'} style={styles.iconMoreContainer}>
+            <Icon color={'#FC6011'} style={styles.iconMore} name="chevron-forward" type='ionicon' size={25}/>
+          </TouchableHighlight>
+        </View>
+        <View style={styles.moreContainer}>
+          <View style={styles.iconContainer}>
+            <Icon color={'#FC6011'} style={styles.icon} name="information" type='ionicon' size={25}/>
+          </View>
+          <Text style={styles.textContainer}>About Us</Text>
+          <TouchableHighlight underlayColor={'transparent'} style={styles.iconMoreContainer}>
+            <Icon color={'#FC6011'} style={styles.iconMore} name="chevron-forward" type='ionicon' size={25}/>
+          </TouchableHighlight>
+        </View>
+      </View>
+      
     </View>
   );
 };
@@ -47,28 +85,69 @@ const styles = StyleSheet.create({
   },
   cart: {
     marginLeft: 280,
+    marginTop:3
   },
-  inputSearchAll: {
-    backgroundColor: '#E8E9E9',
-    marginTop: 30,
-    color: '#B6B7B7E3',
-    width: 350,
-    borderRadius: 350 / 2,
-    marginLeft: 20,
-    textAlign: 'center',
+  cont:{
+    margin:30
+  },
+  moreContainer:{
+    height:100,
+    width:'100%', 
+    backgroundColor:'#E8E9E9',
+    marginTop:20,
+    borderRadius:10,
     flexDirection: 'row',
-    height: 50,
-    paddingLeft: 20,
   },
-  inputSearch: {
-    backgroundColor: 'transparent',
+  iconContainer:{
+    height:60,
+    width:60,
+    borderRadius:30,
+    backgroundColor: '#E8E9E9',
+    marginTop:'5%',
+    marginLeft:'5%',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5,
   },
-  searchIcon: {
-    marginTop: 14,
-    marginLeft: 20,
+  icon:{
+    marginTop:17,
+    marginLeft:3
   },
-  inputSearch: {
-    marginLeft: 15,
+  textContainer:{
+    color:'#5A5858',
+    fontSize:18,
+    marginTop:'10%',
+    fontWeight:'bold',
+    marginLeft:'7%',
+    width:'50%'
   },
+  iconMoreContainer:{
+    backgroundColor:'#E8E9E9',
+    height:50,
+    width:50,
+    borderRadius:25,
+    marginLeft:'12%',
+    marginTop:'7%',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5,
+  },
+  iconMore:{
+    marginTop:12,
+    marginLeft:7 
+  }
+  
 });
 export default More;

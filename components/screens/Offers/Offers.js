@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState}from 'react';
 import {
   View,
   Text,
@@ -6,29 +6,86 @@ import {
   Image,
   TouchableHighlight,
   TextInput,
+  ScrollView
 } from 'react-native';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
+import StarRating from 'react-native-star-rating';
 
 const Offers = () => {
+  const [offers, setOffers] = useState([
+    {
+      name: 'Minute by tuk tuk',
+      image: require('../../../assets/images/hamburger.jpeg'),
+      rating: 4.5,
+      ratingsNumber: 125,
+      foodType: 'Western Food',
+      type: 'Café',
+    },
+    {
+      name: 'Café De Noir',
+      image: require('../../../assets/images/hamburger.jpeg'),
+      rating: 3.5,
+      ratingsNumber: 125,
+      foodType: 'Western Food',
+      type: 'Restaurant',
+    },
+    {
+      name: 'Bakes By Tella',
+      image: require('../../../assets/images/hamburger.jpeg'),
+      rating: 4.5,
+      ratingsNumber: 125,
+      foodType: 'Western Food',
+      type: 'Café',
+    },
+    {
+      name: 'Minute by tuk tuk',
+      image: require('../../../assets/images/hamburger.jpeg'),
+      rating: 4.5,
+      ratingsNumber: 125,
+      foodType: 'Western Food',
+      type: 'Café',
+    },
+  ])
   return (
-    <View style={styles.container}>
+    <ScrollView vertical={true}style={styles.container}>
       <View style={styles.title}>
-        <Text style={styles.greeting}>Offers</Text>
+        <Text style={styles.greeting}>Latest Offers</Text>
         <Text style={styles.cart}>
           <Icon size={24} name="shopping-cart"></Icon>
         </Text>
       </View>
-      <View style={styles.inputSearchAll}>
-          <Text style={styles.searchIcon}>
-            <Icon color="#707174C9" size={17} name="search"></Icon>
-          </Text>
-          <TextInput
-            style={styles.inputSearch}
-            placeholderTextColor="#707174C9"
-            placeholder="Search Food"
-          />
-        </View>
-    </View>
+      <Text style={styles.descOff}>Find discounts, offers, special meals and more!</Text>
+      <TouchableHighlight style={styles.btnOffers} underlayColor={'transparent'}>
+        <Text style={styles.txtOffers}>Check Offers</Text>
+      </TouchableHighlight>
+      <View style={styles.allOffers}> 
+        {offers.map((o=>{
+          return(
+            <View key={offers.indexOf(o)} style={styles.singleOfferItem}>
+              <Image style={styles.imageOffer} source={o.image}></Image>
+              <View style={styles.itemInfos}>
+                  <Text style={styles.itemName}>{o.name}</Text>
+                  <View style={styles.itemMore}>
+                    <StarRating
+                      fullStarColor={'#FC6011'}
+                      starStyle={{borderColor: '#FC6011'}}
+                      disabled={false}
+                      maxStars={1}
+                      rating={o.rating / 5}
+                      starSize={21}
+                    />
+                    <Text style={styles.rating}>{o.rating}</Text>
+                    <Text style={styles.restaurant}>({o.ratingsNumber} ratings)</Text>
+                    <Text style={styles.restaurant}>{o.type}</Text>
+                    <Text style={styles.dot}>-</Text>
+                    <Text style={styles.nameFoodType}>{o.foodType}</Text>
+                  </View>
+                </View>
+            </View>
+          )
+        }))}
+      </View>
+    </ScrollView>
   );
 };
 const styles = StyleSheet.create({
@@ -46,29 +103,71 @@ const styles = StyleSheet.create({
     paddingLeft: 25,
   },
   cart: {
-    marginLeft: 280,
+    marginLeft: 200,
   },
-  inputSearchAll: {
-    backgroundColor: '#E8E9E9',
-    marginTop: 30,
-    color: '#B6B7B7E3',
-    width: 350,
-    borderRadius: 350 / 2,
-    marginLeft: 20,
+  descOff:{
+    width:280,
+    paddingLeft: 25,
+    color: '#585A5AE3',
+    marginTop:10
+  },
+  btnOffers:{
+    backgroundColor: '#FC6011',
+    margin:15,
+    height:40,
+    width:200,
+    marginLeft:30,
+    borderRadius:75
+  },
+  txtOffers:{
+    color: 'white',
     textAlign: 'center',
-    flexDirection: 'row',
-    height: 50,
-    paddingLeft: 20,
+    fontSize:16,
+    fontWeight: 'bold',
+    marginTop:5
   },
-  inputSearch: {
-    backgroundColor: 'transparent',
+  allOffers:{
+    marginBottom:50
   },
-  searchIcon: {
-    marginTop: 14,
+  singleOfferItem:{
+    marginTop:30
+  },
+  imageOffer:{
+    width:'100%',
+    height:200
+  },
+  itemInfos: {
+    // marginTop: -70,
     marginLeft: 20,
   },
-  inputSearch: {
-    marginLeft: 15,
+  itemName: {
+    color: '#202020C9',
+    fontSize: 17,
+    fontWeight: 'bold',
+  },
+  itemMore: {
+    flexDirection: 'row',
+    marginTop: 5,
+  },
+  rating: {
+    color: '#FC6011',
+    marginLeft: 3,
+    fontSize: 14,
+  },
+  restaurant: {
+    color: '#B6B7B7',
+    fontSize: 14,
+    marginLeft: 5,
+  },
+  dot: {
+    color: '#FC6011',
+    fontSize: 14,
+    marginLeft: 5,
+  },
+  nameFoodType: {
+    color: '#B6B7B7',
+    fontSize: 14,
+    marginLeft: 5,
   },
 });
 export default Offers;

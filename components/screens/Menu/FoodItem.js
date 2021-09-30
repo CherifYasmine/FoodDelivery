@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import StarRating from 'react-native-star-rating';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
+import Tabs from '../Tabs'
 
 const FoodItem = () => {
   const [foodItem, setFoodItem] = useState({
@@ -63,11 +64,7 @@ const FoodItem = () => {
             </Text>
           </View>
           <View style={styles.inputSearchAll}>
-            <Text
-              style={styles.inputSearch}
-              // placeholderTextColor="#707174C9"
-              // placeholder="Search Food"
-            >
+            <Text style={styles.inputSearch}>
               - Select the Ingredients -
             </Text>
             <Text style={styles.searchIcon2}>
@@ -130,8 +127,6 @@ const styles = StyleSheet.create({
     marginTop: -30,
     borderTopRightRadius: 50,
     borderTopLeftRadius: 50,
-    //    marginLeft:20,
-    //    marginRight:20,
     backgroundColor: 'white',
     height: 800,
   },
