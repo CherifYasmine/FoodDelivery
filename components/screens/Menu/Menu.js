@@ -34,7 +34,7 @@ const Menu = ({navigation}) => {
     },
   ]);
   return (
-    <View style={styles.container}>
+    <ScrollView vertical={true} style={styles.container}>
       <View style={styles.title}>
         <Text style={styles.greeting}>Menu</Text>
         <Text style={styles.cart}>
@@ -51,49 +51,56 @@ const Menu = ({navigation}) => {
           placeholder="Search Food"
         />
       </View>
-      <View style={styles.orange}></View>
-      <View style={styles.menuItems}>
-        {menuItems.map(menuItem => {
-          return (
-            <TouchableHighlight underlayColor={'transparent'}
-              key={menuItems.indexOf(menuItem)}
-              onPress={() =>
-                navigation.navigate('MenuItems', {name: menuItem.name})
-              }>
-              <View style={styles.menuItem}>
-                <View>
-                  <View style={styles.nameImage}>
-                    <Image
-                      style={styles.menuItemImage}
-                      source={menuItem.Image}></Image>
+      <View style={styles.orangeAll}>
+        <View style={styles.orange}></View>
+        <View style={styles.menuItems}>
+          {menuItems.map(menuItem => {
+            return (
+              <TouchableHighlight
+                underlayColor={'transparent'}
+                key={menuItems.indexOf(menuItem)}
+                onPress={() =>
+                  navigation.navigate('MenuItems', {name: menuItem.name})
+                }>
+                <View style={styles.menuItem}>
+                  <View>
+                    <View style={styles.nameImage}>
+                      <Image
+                        style={styles.menuItemImage}
+                        source={menuItem.Image}></Image>
 
-                    <Text style={styles.menuItemName}>{menuItem.name}</Text>
-                    <View style={{width: 200, height: 200}}>
-                      <TouchableHighlight
-                        underlayColor={'transparent'}
-                        style={styles.menuItemIcon}
-                        onPress={() =>
-                          navigation.navigate('MenuItems', {name: menuItem.name})
-                        }>
-                        <Icon
-                          style={{marginTop: 5}}
-                          name="chevron-forward"
-                          type="ionicon"
-                          size={30}
-                          color={'#FC6011'}></Icon>
-                      </TouchableHighlight>
+                      <Text style={styles.menuItemName}>{menuItem.name}</Text>
+                      
                     </View>
                   </View>
+                  <Text style={styles.itemsNumber}>
+                    {menuItem.itemsNumber} Items
+                  </Text>
+                  <View style={{width: 200, height: 200}}>
+                        <TouchableHighlight
+                          underlayColor={'transparent'}
+                          style={styles.menuItemIcon}
+                          onPress={() =>
+                            navigation.navigate('MenuItems', {
+                              name: menuItem.name,
+                            })
+                          }>
+                          <Icon
+                            style={{marginTop: 5}}
+                            name="chevron-forward"
+                            type="ionicon"
+                            size={30}
+                            color={'#FC6011'}></Icon>
+                        </TouchableHighlight>
+                      </View>
                 </View>
-                <Text style={styles.itemsNumber}>
-                  {menuItem.itemsNumber} Items
-                </Text>
-              </View>
-            </TouchableHighlight>
-          );
-        })}
+              </TouchableHighlight>
+            );
+          })}
+        </View>
+        
       </View>
-    </View>
+    </ScrollView>
   );
 };
 const styles = StyleSheet.create({
@@ -104,9 +111,9 @@ const styles = StyleSheet.create({
   },
   title: {
     flexDirection: 'row',
-    marginLeft:'10%',
-    marginRight:'10%',
-    width:'100%'
+    marginLeft: '10%',
+    marginRight: '10%',
+    width: '100%',
   },
   greeting: {
     fontSize: 20,
@@ -137,22 +144,29 @@ const styles = StyleSheet.create({
   inputSearch: {
     marginLeft: 15,
   },
+  orangeAll:{
+    flexDirection: 'row',
+    marginTop:-20,
+    marginRight: 30,
+    marginBottom: 30,
+  },
   orange: {
     backgroundColor: '#FC6011',
-    height: '87%',
-    width: '22%',
-    marginTop: 50,
+    height: 520,
+    width: 100,
+    marginTop: 70,
     borderBottomRightRadius: 40,
     borderTopRightRadius: 40,
   },
   menuItems: {
-    marginTop: -500,
-    marginLeft: 10,
+    marginTop: 85,
+    marginLeft: -65,
+    width:380
   },
   menuItem: {
     marginTop: 20,
     // width: '100%',
-    marginRight:45,
+    marginRight: 45,
     marginLeft: 50,
     height: 100,
     backgroundColor: 'white',
@@ -191,12 +205,12 @@ const styles = StyleSheet.create({
   itemsNumber: {
     fontSize: 12,
     color: '#B6B7B7',
-    marginTop: -145,
+    marginTop: -30,
     marginLeft: 57,
   },
   menuItemIcon: {
-    marginTop: 30,
-    marginLeft: '40%',
+    marginTop: -45,
+    marginLeft: '130%',
     backgroundColor: '#ffff',
     borderRadius: 20,
     width: 40,
