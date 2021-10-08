@@ -12,8 +12,8 @@ import {
 import {Icon} from 'react-native-elements';
 
 const Checkout = ({navigation, route}) => {
-    const {total} = route.params;
-
+  const {total} = route.params;
+  const [modalVisible, setModalVisible] = useState(false);
   const [cards, setCards] = useState([
     {
       image: require('../../../assets/images/visa.png'),
@@ -51,7 +51,9 @@ const Checkout = ({navigation, route}) => {
             2 cité El Wifek Avenue de Carthage Route Maalga La Marsa
           </Text>
           <TouchableHighlight
-            onPress={() => navigation.navigate('ChangeAddress')}
+            onPress={() => navigation.navigate('ChangeAddress', {
+              total: total,
+            })}
             underlayColor={'transparent'}
             style={styles.changeAdressCont}>
             <Text style={styles.changeAdress}>Change</Text>
@@ -81,10 +83,49 @@ const Checkout = ({navigation, route}) => {
         <Text style={styles.total} >${(total + 4).toFixed(2)}</Text>
       </View>
       <View style={styles.grey}></View>
-      <TouchableHighlight underlayColor={'transparent'} onPress={() => navigation.navigate('More'
-                            )} style={styles.addCardModal}>
+      <TouchableHighlight underlayColor={'transparent'} onPress={() => {setModalVisible(true)}} style={styles.addCardModal}>
         <Text style={styles.checkout}>Send Order</Text>
       </TouchableHighlight>
+      <View style={styles.centeredView}>
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={modalVisible}
+          onRequestClose={() => {
+            setModalVisible(!modalVisible);
+          }}>
+          <View style={styles.centeredView}>
+            <View style={styles.modalView}>
+              <View style={styles.modalTitle}>
+                <TouchableHighlight
+                  underlayColor={'transparent'}
+                  onPress={() => setModalVisible(!modalVisible)}>
+                  <Text style={styles.modalCloseIcon}>
+                    <Icon size={30} name="close" />
+                  </Text>
+                </TouchableHighlight>
+              </View>
+              <Image style={styles.thankYouImage} source={require('../../../assets/images/thankYou.png')}></Image>
+              <Text style={styles.thankYouText}>Thank You!</Text>
+              <Text style={styles.thankYouText2}>For Your Order</Text>
+              <Text style={styles.text}>Your Order is now being processed. We will let you know once the order is picked from the outlet. </Text>
+              <Text style={styles.text2}>Check the status of your order.</Text>
+
+              <TouchableHighlight
+                underlayColor={'transparent'}
+                style={styles.addCardModall}>
+                  <Text style={styles.addCardTextModal}>Track Your Order</Text>
+              </TouchableHighlight>
+              <TouchableHighlight
+                underlayColor={'transparent'}
+                onPress={()=>navigation.navigate('Tabs')}
+                style={styles.addCardModal2}>
+                  <Text style={styles.addCardTextModal2}>Go Back</Text>
+              </TouchableHighlight>
+            </View>
+          </View>
+        </Modal>
+      </View>
     </ScrollView>
   );
 };
@@ -214,8 +255,23 @@ const styles = StyleSheet.create({
     height: 60,
     backgroundColor: '#FC6011',
     borderRadius: 30,
-    marginLeft:40,
+    marginLeft:50,
     marginTop:30
+  },
+  addCardModall: {
+    width: '80%',
+    height: 60,
+    backgroundColor: '#FC6011',
+    borderRadius: 30,
+    marginLeft:10,
+    marginTop:30
+  },
+  addCardModal2: {
+    width: '80%',
+    height: 60,
+    backgroundColor: 'transparent',
+    borderRadius: 30,
+    marginLeft:10,
   },
   checkout:{
     color: '#FFFFFF',
@@ -223,7 +279,85 @@ const styles = StyleSheet.create({
     fontSize:20,
     fontWeight: 'bold',
     marginTop:12
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 22,
+  },
+  modalView: {
+    margin: 20,
+    marginTop: 200,
+    backgroundColor: 'white',
+    borderTopRightRadius: 50,
+    borderTopLeftRadius: 50,
+    padding: 35,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+    width: '100%',
+    height: 740,
+  },
+ 
+  modalCloseIcon: {
+    color: '#4A4B4D',
+    fontWeight: 'bold',
+    marginLeft: 320,
+    marginTop:-20
+  },
+  addCardTextModal: {
+    textAlign: 'center',
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 17,
+    marginTop: 15,
+    marginLeft: 15,
+  },
+  addCardTextModal2: {
+    textAlign: 'center',
+    color: '#626264',
+    fontWeight: 'bold',
+    fontSize: 18,
+    marginTop: 15,
+    marginLeft: 15,
+  },
+  thankYouImage:{
+    marginTop:30,
+    height:250,
+    width:250
+  },
+  thankYouText:{
+    color: '#626264',
+    fontSize:30,
+    textAlign:'center',
+    fontWeight:'bold'
+  },
+  thankYouText2:{
+    color: '#626264',
+    fontSize:19,
+    textAlign:'center',
+  },
+  text:{
+    textAlign:'center',
+    marginTop:20,
+    color: '#626264',
+    fontSize:14,
+
+  },
+  text2:{
+    textAlign:'center',
+    color: '#626264',
+    fontSize:14,
+
   }
+
 });
 
 export default Checkout;

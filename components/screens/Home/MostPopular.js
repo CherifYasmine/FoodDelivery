@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import StarRating from 'react-native-star-rating';
 
-const MostPopular = () => {
+const MostPopular = ({navigation}) => {
   const [popularRests, setPopularRests] = useState([
     {
       name: 'Minute by tuk tuk',
@@ -51,7 +51,8 @@ const MostPopular = () => {
       <ScrollView horizontal={true}>
         {popularRests.map(p => {
           return (
-            <View key={popularRests.indexOf(p)} style={styles.containerRests}>
+            <TouchableHighlight onPress={()=>navigation.navigate('MenuRestaurantItems', {restaurantName: p.name})} key={popularRests.indexOf(p)} underlayColor={'transparent'}>
+            <View  style={styles.containerRests}>
               <Image style={styles.imageRest} source={p.image}></Image>
               <Text style={styles.nameRest}>{p.name}</Text>
               <View style={styles.restInfos}>
@@ -69,6 +70,8 @@ const MostPopular = () => {
                 <Text style={styles.rat}>{p.rating}</Text>
               </View>
             </View>
+            </TouchableHighlight>
+
           );
         })}
       </ScrollView>

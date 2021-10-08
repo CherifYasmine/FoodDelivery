@@ -11,13 +11,16 @@ import {
 } from 'react-native';
 import {Icon} from 'react-native-elements';
 
-const ChangeAddress = ({navigation}) => {
+const ChangeAddress = ({navigation, route}) => {
+  const {total} = route.params;
   return (
     <ScrollView vertical={true} style={styles.container}>
       <View style={styles.title}>
         <TouchableHighlight
           underlayColor={'transparent'}
-          onPress={() => navigation.navigate('MyOrders')}
+          onPress={() => navigation.navigate('Checkout', {
+            total: total,
+          })}
           style={styles.backIcon}>
           <Icon
             size={33}

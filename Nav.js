@@ -20,6 +20,11 @@ import Inbox from './components/screens/More/Inbox';
 import MyOrders from './components/screens/More/MyOrders';
 import Checkout from './components/screens/More/Checkout';
 import ChangeAddress from './components/screens/More/ChangeAddress';
+import Home from './components/screens/Home/Home';
+import Menu from './components/screens/Menu/Menu';
+import MenuRestaurantItems from './components/screens/Home/MenuRestaurantItems';
+import FoodRestauItems from './components/screens/Home/FoodRestauItems';
+import SingleFood from './components/screens/Home/SingleFood';
 
 
 const Stack = createNativeStackNavigator();
@@ -161,8 +166,34 @@ const Nav = () => {
           name="ChangeAddress"
           component={ChangeAddress}
         />
-
-
+        <Stack.Screen
+        options={{
+            headerShown: false
+             }}
+          name="Menu"
+          component={Menu}
+        />
+        <Stack.Screen
+        options={{
+            headerShown: false
+             }}
+          name="MenuRestaurantItems"
+          component={MenuRestaurantItems}
+        />
+        <Stack.Screen
+        options={{
+            headerShown: false
+             }}
+          name="FoodRestauItems"
+          component={FoodRestauItems}
+        />
+        <Stack.Screen
+        options={{
+            headerShown: false
+             }}
+          name="SingleFood"
+          component={SingleFood}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -6,13 +6,14 @@ import {
   TextInput,
   Image,
   ScrollView,
+  TouchableHighlight
 } from 'react-native';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 import MostPopular from './MostPopular';
 import PopularRestaurants from './PopularRestaurants';
 import RecentItems from './RecentItems';
 
-const Home = () => {
+const Home = ({navigation}) => {
   const [options, setOptions] = useState([
     {name: 'offers', image: require('../../../assets/images/hamburger.jpeg')},
     {name: 'Srl Lankan', image: require('../../../assets/images/hamburger.jpeg')},
@@ -31,6 +32,7 @@ const Home = () => {
           <Icon size={24} name="shopping-cart"></Icon>
         </Text>
       </View>
+      
       <View>
         <Text style={styles.deliveringTo}>Delivering To</Text>
         <View style={styles.location}>
@@ -74,9 +76,9 @@ const Home = () => {
         })}
       </ScrollView>
       </View>
-      <PopularRestaurants/>
-      <MostPopular/>
-      <RecentItems/>
+      <PopularRestaurants navigation={navigation} />
+      <MostPopular navigation={navigation} />
+      <RecentItems navigation={navigation} />
     </ScrollView>
   );
 };

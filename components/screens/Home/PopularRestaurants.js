@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import StarRating from 'react-native-star-rating';
 
-const PopularRestaurants = () => {
+const PopularRestaurants = ({navigation}) => {
   const [popularRests, setPopularRests] = useState([
     {
       name: 'Minute by tuk tuk',
@@ -51,7 +51,8 @@ const PopularRestaurants = () => {
       <View style={styles.rests}>
         {popularRests.slice(0,3).map(e => {
           return (
-            <View key={popularRests.indexOf(e)} style={styles.restaurant}>
+            <TouchableHighlight onPress={()=>navigation.navigate('MenuRestaurantItems', {restaurantName: e.name})} key={popularRests.indexOf(e)} underlayColor={'transparent'}>
+            <View style={styles.restaurant}>
               <Image style={styles.restaurantImage} source={e.image}></Image>
               <View style={styles.restaurantInfos1}>
                 <Text style={styles.restaurantName}>{e.name}</Text>
@@ -70,9 +71,11 @@ const PopularRestaurants = () => {
                 <Text style={styles.ratingsNumber} t>
                   ({e.ratingsNumber} ratings)
                 </Text>
+                <Text style={styles.dot}>-</Text>
                 <Text style={styles.foodType}>{e.foodType}</Text>
               </View>
             </View>
+            </TouchableHighlight>
           );
         })}
       </View>
@@ -113,6 +116,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginLeft: '10%',
     fontSize: 17,
+    width:'37%'
   },
   restaurantInfos: {
     flexDirection: 'row',
@@ -124,9 +128,15 @@ const styles = StyleSheet.create({
       color:'#B6B7B7',
       fontSize:13
   },
+  dot: {
+    fontSize: 13,
+    marginLeft: 10,
+    color: '#FC6011',
+    fontWeight: 'bold',
+  },
   foodType: {
     color:'#B6B7B7',
-    marginLeft:'20%',
+    marginLeft:10,
     fontSize:13
 
   },

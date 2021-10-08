@@ -11,7 +11,7 @@ import {
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 import StarRating from 'react-native-star-rating';
 
-const Offers = () => {
+const Offers = ({navigation}) => {
   const [offers, setOffers] = useState([
     {
       name: 'Minute by tuk tuk',
@@ -61,7 +61,13 @@ const Offers = () => {
       <View style={styles.allOffers}> 
         {offers.map((o=>{
           return(
-            <View key={offers.indexOf(o)} style={styles.singleOfferItem}>
+            <TouchableHighlight
+                    underlayColor={'transparent'}
+                    key={offers.indexOf(o)}
+                    onPress={() =>
+                      navigation.navigate('FoodRestauItems', {name: o.name})
+                    }>
+            <View  style={styles.singleOfferItem}>
               <Image style={styles.imageOffer} source={o.image}></Image>
               <View style={styles.itemInfos}>
                   <Text style={styles.itemName}>{o.name}</Text>
@@ -82,6 +88,7 @@ const Offers = () => {
                   </View>
                 </View>
             </View>
+            </TouchableHighlight>
           )
         }))}
       </View>

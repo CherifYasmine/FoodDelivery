@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {View, Image, Text, StyleSheet, TouchableHighlight} from 'react-native';
 import StarRating from 'react-native-star-rating';
 
-const RecentItems = () => {
+const RecentItems = ({navigation}) => {
   const [recentItems, setRecentItems] = useState([
     {
       name: 'Minute by tuk tuk',
@@ -45,33 +45,37 @@ const RecentItems = () => {
           <Text style={styles.viewAll}>View All</Text>
         </TouchableHighlight>
       </View>
-      {recentItems.slice(0,3).map(r => {
+      {recentItems.slice(0, 3).map(r => {
         return (
-          <View key={recentItems.indexOf(r)} style={styles.recentItems}>
-            <Image style={styles.recentItemImage} source={r.image}></Image>
-            <View style={styles.recentItemInfos}>
-              <Text style={styles.name}>{r.name}</Text>
-              <View style={styles.recentInfos}>
-                <Text style={styles.type}>{r.type}</Text>
-                <Text style={styles.dot}>-</Text>
-                <Text style={styles.foodType}>{r.foodType}</Text>
-              </View>
-              <View style={styles.restInfos}>
-                <Text style={styles.restaurantStars}>
-                  <StarRating
-                    fullStarColor={'#FC6011'}
-                    starStyle={{borderColor: '#FC6011'}}
-                    disabled={false}
-                    maxStars={1}
-                    rating={r.rating / 5}
-                    starSize={21}
-                  />
-                </Text>
-                <Text style={styles.rat}>{r.rating}</Text>
-                <Text style={styles.ratingsNumber}>({r.ratingsNumber} ratings)</Text>
+          <TouchableHighlight onPress={()=>navigation.navigate('MenuRestaurantItems', {restaurantName: r.name})} underlayColor={'transparent'} key={recentItems.indexOf(r)}>
+            <View style={styles.recentItems}>
+              <Image style={styles.recentItemImage} source={r.image}></Image>
+              <View style={styles.recentItemInfos}>
+                <Text style={styles.name}>{r.name}</Text>
+                <View style={styles.recentInfos}>
+                  <Text style={styles.type}>{r.type}</Text>
+                  <Text style={styles.dot}>-</Text>
+                  <Text style={styles.foodType}>{r.foodType}</Text>
+                </View>
+                <View style={styles.restInfos}>
+                  <Text style={styles.restaurantStars}>
+                    <StarRating
+                      fullStarColor={'#FC6011'}
+                      starStyle={{borderColor: '#FC6011'}}
+                      disabled={false}
+                      maxStars={1}
+                      rating={r.rating / 5}
+                      starSize={21}
+                    />
+                  </Text>
+                  <Text style={styles.rat}>{r.rating}</Text>
+                  <Text style={styles.ratingsNumber}>
+                    ({r.ratingsNumber} ratings)
+                  </Text>
+                </View>
               </View>
             </View>
-          </View>
+          </TouchableHighlight>
         );
       })}
     </View>
@@ -136,17 +140,15 @@ const styles = StyleSheet.create({
   restInfos: {
     flexDirection: 'row',
   },
-  ratingsNumber:{
-    color:'#B6B7B7',
-    fontSize:13,
-    marginLeft: 10
+  ratingsNumber: {
+    color: '#B6B7B7',
+    fontSize: 13,
+    marginLeft: 10,
   },
-  restaurantStars:{
-  },
-  rat:{
+  restaurantStars: {},
+  rat: {
     color: '#FC6011',
-    fontSize:13,
-
-  }
+    fontSize: 13,
+  },
 });
 export default RecentItems;
